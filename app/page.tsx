@@ -1,11 +1,16 @@
 import Image from "next/image";
+import UpLink from '@/components/upLink'
 
 export default function Home() {
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <input type="text" name="share" placeholder="Share Video Link"
-        className="px-4 py-4 rounded-md bg-transparent border-[1px] border-[#333]"
-      ></input>
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      <div className="h-screen w-1/4 bg-[#111] rounded-3xl">
+        <video>
+          <source></source>
+        </video>
+      </div>
+      <UpLink/>
     </main>
   );
 }
