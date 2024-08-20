@@ -56,14 +56,14 @@ const UpLink = () => {
 
   return (
     <>
-      <form onSubmit={submitVlink} className='block'>
+      <form onSubmit={submitVlink}>
         <input
           type="text"
           name="vlink"
           value={formData.vlink}
           onChange={(e) => setFormData({ ...formData, vlink: e.target.value })}
-          placeholder="Paste Video Link"
-          className="fixed w-full lg:w-auto mx-auto lg:right-4 left-0 bottom-4 text-center lg:text-right px-8 py-4 lg:py-2 rounded-full bg-transparent border-[1px] lg:border-[#111] placeholder-[#333]"
+          placeholder="Paste Video Link and Press Enter"
+          className="fixed w-auto mx-auto inset-x-0 lg:w-[24em] bottom-4 text-black text-center px-8 py-4 lg:py-2 rounded-lg bg-white border-[1px] lg:border-[#111] placeholder-[#333]"
         ></input>
         <button type="submit" className="hidden"></button>
       </form>

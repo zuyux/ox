@@ -1,48 +1,47 @@
-import { useRouter } from 'next/router'
+// v/[id].js
+import { sql } from '@vercel/postgres';
+import { GetServerSideProps } from 'next';
+import ytdl from 'ytdl-core';
+import { tmpdir } from 'os';
+import path from 'path';
 
-// Component to display the video
 const VideoPage = ({ video }) => {
-  const router = useRouter()
-  const { id } = router.query
-
-  // Handle case where video is not found
   if (!video) {
-    return <div>Video not found</div>
+    return (
+      <div>
+        <h1 className='font-sans text-center h-screen w-full mx-auto'>Video not found</h1>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <h1>Video ID: {id}</h1>
-      <iframe
-        width="560"
-        height="315"
-        src={video.vlink}
-        title="Video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
+    <div className='flex justify-center items-center h-screen'>
+      <div>
+        <video controls className='mx-auto max-w-full h-auto'>
+          <source src={`/videos/${video.videoID}.mp4`} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-// Fetch video data based on videoID
-export async function getServerSideProps(context) {
-  const { id } = context.params
-  let video = null
+export const getServerSideProps = async (context) => {
+  const { id } = context.params;
+
+  let video = null;
 
   try {
-    const res = await fetch(`/api/v/${id}`) 
-    if (res.ok) {
-      video = await res.json()
-    } else {
-      console.error('Failed to fetch video data:', res.status)
-    }
+    // Query the database to get the video data by videoID
+    const result = await sql`SELECT vlink, videoID FROM vlinx WHERE videoID = ${id}`;
+
+    
   } catch (error) {
-    console.error('Error fetching video data:', error)
+    console.error('Error fetching or processing video data:', error);
   }
 
-  // Pass video data as props
-  return { props: { video } }
-}
+  return { props: { video } };
+};
 
-export default VideoPage
+
+export default VideoPage;

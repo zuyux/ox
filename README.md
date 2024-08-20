@@ -1,3 +1,5 @@
+![Alt text](ox-flow.jpeg)
+
 # OX
 
 OX is a decentralized application (DApp) designed to centralize access to audiovisual content available on various video platforms. It allows users to download this content to mobile and portable devices for personal use, simplifying the process of keeping up with multiple streams from different platforms. OX also addresses the issue of algorithmic censorship by ensuring a fair redistribution of content, promoting diverse perspectives, and enhancing critical thinking among users.
