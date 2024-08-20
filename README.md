@@ -1,4 +1,4 @@
-![Alt text](ox-flow.jpeg)
+![Alt text](/public/ox-flow.jpeg)
 
 # OX
 
