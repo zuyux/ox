@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/api/vlink.js", "pages/api/vid.js", "pages/v/[id].ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/api/vlink.js", "pages/api/vid.js", "pages/v/[id].ts", "pages/api/v/[id].ts", "pages/api/proxy.js"],
   "exclude": ["node_modules"]
 }
